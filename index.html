@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Progress Tracking System</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Progress Tracker</h1>
+        
+        <div class="global-tasks-section">
+            <h2 style="margin-bottom: 1.5rem; color: #ffffff; font-size: 1.2rem; font-weight: 500;">Master Task List</h2>
+            
+            <div class="task-input">
+                <div class="input-group">
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" placeholder="Enter task name">
+                </div>
+                <div class="input-group">
+                    <label for="taskScore">Points:</label>
+                    <input type="number" id="taskScore" min="1" max="20" placeholder="Points">
+                </div>
+                <button onclick="addTask()">Add Task</button>
+                <button class="clear-btn" onclick="clearAllTasks()">Clear All Tasks</button>
+            </div>
+
+            <div class="tasks-container">
+                <h3 style="margin-bottom: 1rem; color: #ffffff; font-size: 1.1rem; font-weight: 500;">Your Tasks</h3>
+                <div id="globalTasksContainer">
+                    <div class="no-tasks">No tasks added yet</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="daily-progress-section">
+            <div class="day-score-section">
+                <div class="day-input-container">
+                    <label for="currentDay">Current Day:</label>
+                    <select id="currentDay" class="day-selector">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div>
+                    <span>Today's Score: </span>
+                    <span class="current-score" id="currentDayScore">0</span>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <h3 style="margin-bottom: 1rem; color: #ffffff; font-size: 1.1rem; font-weight: 500;">Daily Progress</h3>
+                <div id="dailyTasksContainer">
+                    <div class="no-tasks">No tasks available. Add tasks in the Master Task List above.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="progressChart"></canvas>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalDays">0</div>
+                <div class="stat-label">Days Tracked</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgScore">0</div>
+                <div class="stat-label">Average Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="maxScore">0</div>
+                <div class="stat-label">Highest Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalTasks">0</div>
+                <div class="stat-label">Master Tasks</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
